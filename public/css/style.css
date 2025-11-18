@@ -1,0 +1,50 @@
+body {
+    background: #1f1f1f;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* MAIN WHITE CARD */
+.container {
+    background: white;
+    min-height: 100vh;
+}
+
+/* HEADER BAR */
+.header {
+    background: #c99393;
+    padding: 20px;
+}
+
+.header-title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-title i {
+    font-size: 24px;
+}
+
+/* SECTION STYLING */
+.section {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.section-title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ADD TASK BUTTON */
+.add-btn {
+    padding: 5px 12px;
+    border: none;
+    border-radius: 20px;
+    background: #f2cccc;
+    cursor: pointer;
+}
