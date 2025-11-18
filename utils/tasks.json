@@ -1,8 +1,20 @@
 [
     {
-        "id": "string",
-        "title": "string",
-        "status": "pending / completed",
-        "createdBy": "email"
+        "id": "TASK-001",
+        "title": "Set up project repository",
+        "status": "completed",
+        "createdBy": "ayana@example.com"
+    },
+    {
+        "id": "TASK-002",
+        "title": "Design user interface wireframes",
+        "status": "pending",
+        "createdBy": "hamsitha@example.com"
+    },
+    {
+        "id": "TASK-003",
+        "title": "Implement task creation endpoint",
+        "status": "pending",
+        "createdBy": "shahina@example.com"
     }
 ]
