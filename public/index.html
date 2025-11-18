@@ -11,6 +11,7 @@
     <!-- EXTERNAL CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <!-- MAIN CONTAINER -->
@@ -24,21 +25,30 @@
             </h2>
         </div>
 
-        <!-- MY TASKS SECTION -->
-        <div class="section">
-            <h3 class="section-title">
-                My Tasks
-                <button class="add-btn">Add Task</button>
-            </h3>
-        </div>
+        <!-- TASKS GRID: Pending (left) and Completed (right) -->
+        <div class="task-grid">
 
-        <!-- COMPLETED TASKS SECTION -->
-        <div class="section">
-            <h3 class="section-title">Completed Tasks</h3>
-        </div>
+            <!-- Pending Tasks -->
+            <div class="task-column">
+                <h3 class="section-title1">
+                    Pending Tasks
+                    <button class="add-btn">Add Task</button>
+                </h3>
+                <div id="pending-tasks"></div>
+            </div>
 
+            <!-- Completed Tasks -->
+            <div class="task-column">
+                <h3 class="section-title2">Completed Tasks</h3>
+                <div id="completed-tasks"></div>
+            </div>
+
+        </div>
     </div>
-
+    <script src="/js/raelene-cha.js"></script>
+    <script>
+        getTasks();
+    </script>
 </body>
 
 </html>
