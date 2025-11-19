@@ -5,6 +5,8 @@ const path = require('path');
 const TASKS_FILE = path.join(__dirname, 'tasks.json');
 
 async function viewTasks(req, res) {
+    //uncomment to test error handling in frontend
+    // throw new Error('Not implemented');
     try {
         const data = await fs.readFile(TASKS_FILE, 'utf8');
         const allTasks = JSON.parse(data);

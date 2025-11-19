@@ -27,17 +27,28 @@ body {
     font-size: 24px;
 }
 
-/* SECTION STYLING */
+/* GENERIC SECTION (if you use it elsewhere) */
 .section {
     padding: 20px;
     border-bottom: 1px solid #ddd;
 }
 
-.section-title {
+/* TITLES */
+.section-title1 {
     margin: 0;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
+    color: #e44242;
+}
+.section-title2 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color:rgb(55, 192, 114)
 }
 
 /* ADD TASK BUTTON */
@@ -47,4 +58,55 @@ body {
     border-radius: 20px;
     background: #f2cccc;
     cursor: pointer;
+}
+
+/* GRID LAYOUT FOR PENDING / COMPLETED TASKS */
+.task-grid {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* EACH COLUMN (Pending / Completed) */
+.task-column {
+    flex: 1;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* SCROLLABLE LIST AREAS */
+#pending-tasks,
+#completed-tasks {
+    margin-top: 12px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+/* INDIVIDUAL TASK CARD */
+.task-item {
+    background: #f7f7f7;
+    border-left: 4px solid #c99393;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.task-item p {
+    margin: 2px 0;
+}
+
+.message {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.message.error {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    color: #991b1b;
+    border-left: 4px solid #ef4444;
 }
