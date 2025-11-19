@@ -13,6 +13,10 @@ app.post('/add-User', addUser);
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
 })
+
+const { viewTasks } = require('./utils/RaeleneViewTasksUtil');
+app.get('/view-tasks', viewTasks)
+
 server = app.listen(PORT, function () {
     const address = server.address();
     const baseUrl = `http://${address.address == "::" ? 'localhost' :
