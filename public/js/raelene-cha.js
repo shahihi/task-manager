@@ -38,6 +38,12 @@ function displayTasks(tasks) {
         displayMessage("Some tasks could not be displayed due to data corruption.");
         return;
     }
+    // Sort by due date (earliest first)
+    tasks.sort((a, b) => {
+        const dateA = new Date(a.dueDate);
+        const dateB = new Date(b.dueDate);
+        return dateA - dateB;
+    });
 
     tasks.forEach(task => {
         const item = document.createElement("div");
@@ -45,6 +51,7 @@ function displayTasks(tasks) {
 
         item.innerHTML = `
             <p>${task.title}</p>
+            <span class="due-date">Due Date: ${formatDate(task.dueDate)}</span>
         `;
 
         if (task.status === "completed") {
@@ -79,7 +86,8 @@ function findCorruptedRecords(tasks) {
             !task.id ||
             task.title == null ||
             task.status == null ||
-            !task.createdBy;
+            !task.createdBy ||
+            !task.dueDate;
 
 
         //email must be valid format
@@ -89,7 +97,26 @@ function findCorruptedRecords(tasks) {
 
         //status must be either "pending" or "completed"
         const invalidStatus = task.status !== "pending" && task.status !== "completed";
+        //dueDate must be valid date
+        let invalidDueDate = false;
+        if (task.dueDate) {
+            const d = new Date(task.dueDate);
+            invalidDueDate = isNaN(d.getTime());
+        }
 
-        return missingField || invalidEmail || invalidStatus;
+        return missingField || invalidEmail || invalidStatus || invalidDueDate;
     });
+}
+// Format due date for display
+function formatDate(dateStr) {
+    if (!dateStr) return "No due date";
+
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return "Invalid date";
+
+    return date.toLocaleDateString("en-SG", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+    }); // e.g. "20 Nov 2025"
 }
