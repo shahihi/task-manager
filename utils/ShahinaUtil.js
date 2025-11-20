@@ -8,7 +8,19 @@ const TEMPLATE_FILE = path.join('utils', 'users.template.json');
 async function addUser(req, res) {
     try {
         const { name, email, password, confirmPassword } = req.body;
-        const newUser = new User(name, email, password, confirmPassword);
+
+        if (!name || !email || !password || !confirmPassword) {
+            return res.status(400).json({ message: "All fields are required" });
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            return res.status(400).json({ message: "Invalid email format." });
+        }
+
+        if (password !== confirmPassword) {
+            return res.status(400).json({ message: "Password and Confirm Password does not match." });
+        }
 
         let users = [];
         try {
@@ -24,6 +36,14 @@ async function addUser(req, res) {
                 throw err;
             }
         }
+
+        const emailExists = users.some(user => user.email === email);
+        if (emailExists) {
+            return res.status(400).json({ message: "This email is already in use, please use another email." });
+        }
+
+        const newUser = new User(name, email, password, confirmPassword);
+
         users.push(newUser);
         await fs.writeFile(USERS_FILE, JSON.stringify(users, null, 2), 'utf8');
 

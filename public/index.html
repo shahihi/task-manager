@@ -47,7 +47,12 @@
     </div>
     <script src="/js/raelene-cha.js"></script>
     <script>
-        getTasks();
+        // If no one is logged in, redirect to register
+        if (!localStorage.getItem("email")) {
+            window.location.href = "register.html";
+        } else {
+            getTasks();
+        }
     </script>
 </body>
 
