@@ -52,6 +52,9 @@ function displayTasks(tasks) {
         item.innerHTML = `
             <p>${task.title}</p>
             <span class="due-date">Due Date: ${formatDate(task.dueDate)}</span>
+            <button class="edit-btn" onclick='openEditModal(${JSON.stringify(task)})'>
+        Edit
+    </button>
         `;
 
         if (task.status === "completed") {
