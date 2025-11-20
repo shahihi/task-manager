@@ -36,7 +36,7 @@
                 </h3>
                 <div id="pending-tasks"></div>
             </div>
-
+ 
             <!-- Completed Tasks -->
             <div class="task-column">
                 <h3 class="section-title2">Completed Tasks</h3>
@@ -54,6 +54,27 @@
             getTasks();
         }
     </script>
+
+    <!-- ADD TASK MODAL -->
+    <div id="addTaskModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn">&times;</span>
+
+            <form id="taskForm">
+                <label>Task Name</label>
+                <input type="text" id="taskName">
+
+                <label>Date</label>
+                <input type="date" id="taskDate" >
+
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/hamsitha.js"></script>
+
 </body>
 
 </html>
