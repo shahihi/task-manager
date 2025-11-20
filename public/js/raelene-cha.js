@@ -120,3 +120,8 @@ function formatDate(dateStr) {
         year: "numeric"
     }); // e.g. "20 Nov 2025"
 }
+
+// Auto-refresh tasks every 5 seconds
+setInterval(() => {
+    getTasks();
+}, 5000);
