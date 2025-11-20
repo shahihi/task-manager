@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
 })
 
+const { addTask } = require('./utils/HamsithaAddTaskUtil');
+app.post('/add-task', addTask);
+
+
 const { viewTasks } = require('./utils/RaeleneViewTasksUtil');
 app.get('/view-tasks', viewTasks)
 
