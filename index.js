@@ -10,6 +10,9 @@ app.use(express.static("./public"));
 const { addUser } = require('./utils/ShahinaUtil');
 app.post('/add-User', addUser);
 
+const { editTask } = require('./utils/AyanaUtil');
+app.put('/edit-task/:id', editTask);
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
 })
