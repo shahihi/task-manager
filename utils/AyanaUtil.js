@@ -40,14 +40,6 @@ async function editTask(req, res) {
             });
         }
 
-        // Validate date format dd-mm-yyyy
-        const dateRegex = /^\d{2}-\d{2}-\d{4}$/;
-        if (!dateRegex.test(dueDate)) {
-            return res.status(400).json({
-                message: 'Invalid date format. Use dd-mm-yyyy.'
-            });
-        }
-
         let tasks = [];
 
         // Read tasks.json
