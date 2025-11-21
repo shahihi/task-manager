@@ -10,7 +10,7 @@ async function getTasks() {
             if (response.status === 400) {
                 displayMessage("Some tasks could not be displayed due to data corruption.");
             } else {
-                displayMessage("Unable to load tasks: " + errorData.message);
+                displayMessage("Unable to load tasks due to server error");
             }
             return;
         }
