@@ -22,7 +22,7 @@ const { addTask } = require('./utils/HamsithaUtil');
 app.post('/add-task', addTask);
 
 
-const { viewTasks } = require('./utils/RaeleneViewTasksUtil');
+const { viewTasks } = require('./utils/RaeleneUtil');
 app.get('/view-tasks', viewTasks)
 
 server = app.listen(PORT, function () {
