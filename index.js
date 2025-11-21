@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + startPage);
 })
 
-const { addTask } = require('./utils/HamsithaAddTaskUtil');
+const { addTask } = require('./utils/HamsithaUtil');
 app.post('/add-task', addTask);
 
 
