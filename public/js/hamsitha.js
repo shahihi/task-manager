@@ -50,8 +50,6 @@ function addTask() {
             document.getElementById("taskName").value = "";
             document.getElementById("taskDate").value = "";
             document.getElementById("addTaskModal").style.display = "none";
-
-            loadTasks();
         }
     };
 
