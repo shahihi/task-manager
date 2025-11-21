@@ -192,6 +192,13 @@ input[type="password"] {
     animation: popup 0.25s ease-out;
 }
 
+.close-btn {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
 /* Smooth pop-in animation */
 @keyframes popup {
     from { transform: scale(0.9); opacity: 0; }
