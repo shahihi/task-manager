@@ -50,7 +50,7 @@ async function addUser(req, res) {
         return res.status(201).json({ message: 'User created successfully' });
     } catch (err) {
         console.error(err);
-        return res.status(500).json({ message: error.message });
+        return res.status(500).json({ message: err.message });
     }
 }
 
