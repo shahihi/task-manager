@@ -230,3 +230,16 @@ input[type="password"] {
 .modal-content button:hover {
     background: #b67a7a;
 }
+
+.status-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.status-btn:hover {
+    opacity: 0.6;
+}
+
