@@ -3,22 +3,29 @@ async function getTasks() {
     try {
         const response = await fetch('http://localhost:5050/view-tasks');
 
-        // Error: Corrupted JSON or server error (500)
-        if (response.status === 500) {
-            displayMessage("Unable to load tasks due to server error.");
+        // Handle backend errors (400 = corrupted data, 500 = server error)
+        if (!response.ok) {
+            const errorData = await response.json();
+
+            if (response.status === 400) {
+                displayMessage("Some tasks could not be displayed due to data corruption.");
+            } else {
+                displayMessage("Unable to load tasks: " + errorData.message);
+            }
             return;
         }
 
-        // Success: Tasks retrieved
+        // Success: tasks retrieved
         const tasks = await response.json();
 
         // Filter tasks created by logged-in user
-        const filteredTasks = tasks.filter(task => task.createdBy === localStorage.getItem("email"));
+        const filteredTasks = tasks.filter(
+            task => task.createdBy === localStorage.getItem("email")
+        );
 
         displayTasks(filteredTasks);
 
     } catch (error) {
-        // Network error or unexpected issues
         displayMessage("An unexpected error occurred. Please try again later.");
     }
 }
@@ -33,12 +40,7 @@ function displayTasks(tasks) {
     pendingContainer.innerHTML = "";
     completedContainer.innerHTML = "";
 
-    const corruptedRecords = findCorruptedRecords(tasks);
-    if (corruptedRecords.length > 0) {
-        displayMessage("Some tasks could not be displayed due to data corruption.");
-        return;
-    }
-    // Sort by due date (earliest first)
+    // Sort tasks by due date (earliest first)
     tasks.sort((a, b) => {
         const dateA = new Date(a.dueDate);
         const dateB = new Date(b.dueDate);
@@ -50,25 +52,34 @@ function displayTasks(tasks) {
         item.classList.add("task-item");
 
         item.innerHTML = `
+            <button class="status-btn" onclick="toggleStatus(${task.id})">
+                ${task.status === "completed" ? "✔" : "○"}
+            </button>
+
             <p>${task.title}</p>
             <span class="due-date">Due Date: ${formatDate(task.dueDate)}</span>
+
             <button class="edit-btn" onclick='openEditModal(${JSON.stringify(task)})'>
-        Edit
-    </button>
+                Edit
+            </button>
         `;
 
         if (task.status === "completed") {
             completedContainer.appendChild(item);
-            numberOfTasks.completed += 1;
+            numberOfTasks.completed++;
         } else {
             pendingContainer.appendChild(item);
-            numberOfTasks.pending += 1;
+            numberOfTasks.pending++;
         }
     });
 
-    // No tasks
-    if (numberOfTasks.pending === 0) displayMessage("No pending tasks.", true, false);
-    if (numberOfTasks.completed === 0) displayMessage("No completed tasks.", false, true);
+    // No tasks in either category
+    if (numberOfTasks.pending === 0) {
+        displayMessage("No pending tasks.", true, false);
+    }
+    if (numberOfTasks.completed === 0) {
+        displayMessage("No completed tasks.", false, true);
+    }
 }
 
 
@@ -77,39 +88,15 @@ function displayMessage(message, showInPending = true, showInCompleted = true) {
     const pendingContainer = document.getElementById("pending-tasks");
     const completedContainer = document.getElementById("completed-tasks");
 
-    if (showInPending) pendingContainer.innerHTML = `<p class='message error'>${message}</p>`;
-    if (showInCompleted) completedContainer.innerHTML = `<p class='message error'>${message}</p>`;
+    if (showInPending) {
+        pendingContainer.innerHTML = `<p class='message error'>${message}</p>`;
+    }
+    if (showInCompleted) {
+        completedContainer.innerHTML = `<p class='message error'>${message}</p>`;
+    }
 }
 
-// DATA VALIDATION / CORRUPTION CHECK
-function findCorruptedRecords(tasks) {
-    return tasks.filter(task => {
-        // Required fields must exist
-        const missingField =
-            !task.id ||
-            task.title == null ||
-            task.status == null ||
-            !task.createdBy ||
-            !task.dueDate;
 
-
-        //email must be valid format
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const emailInput = task.createdBy;
-        const invalidEmail = (!emailRegex.test(emailInput));
-
-        //status must be either "pending" or "completed"
-        const invalidStatus = task.status !== "pending" && task.status !== "completed";
-        //dueDate must be valid date
-        let invalidDueDate = false;
-        if (task.dueDate) {
-            const d = new Date(task.dueDate);
-            invalidDueDate = isNaN(d.getTime());
-        }
-
-        return missingField || invalidEmail || invalidStatus || invalidDueDate;
-    });
-}
 // Format due date for display
 function formatDate(dateStr) {
     if (!dateStr) return "No due date";
@@ -121,10 +108,14 @@ function formatDate(dateStr) {
         day: "2-digit",
         month: "short",
         year: "numeric"
-    }); // e.g. "20 Nov 2025"
+    });
 }
+
 
 // Auto-refresh tasks every 5 seconds
 setInterval(() => {
     getTasks();
 }, 5000);
+
+
+getTasks();
