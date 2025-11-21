@@ -40,14 +40,6 @@ async function editTask(req, res) {
             });
         }
 
-        // Validate date format dd-mm-yyyy
-        const dateRegex = /^\d{2}-\d{2}-\d{4}$/;
-        if (!dateRegex.test(dueDate)) {
-            return res.status(400).json({
-                message: 'Invalid date format. Use dd-mm-yyyy.'
-            });
-        }
-
         let tasks = [];
 
         // Read tasks.json
@@ -90,4 +82,31 @@ async function editTask(req, res) {
     }
 }
 
-module.exports = { editTask };
+async function updateStatus(req, res) {
+    try {
+        const { id } = req.params;
+
+        let tasks = JSON.parse(await fs.readFile(TASKS_FILE, 'utf8'));
+
+        const taskIndex = tasks.findIndex(t => t.id == id);
+        if (taskIndex === -1) {
+            return res.status(404).json({ message: "Task not found." });
+        }
+
+        // Toggle status
+        tasks[taskIndex].status =
+            tasks[taskIndex].status === "completed" ? "pending" : "completed";
+
+        await fs.writeFile(TASKS_FILE, JSON.stringify(tasks, null, 2), 'utf8');
+
+        return res.status(200).json({
+            message: "Status updated successfully",
+            task: tasks[taskIndex]
+        });
+
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+}
+
+module.exports = { editTask, updateStatus };
