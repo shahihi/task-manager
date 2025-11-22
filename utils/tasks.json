@@ -1,27 +1,27 @@
 [
   {
     "title": "Design user interface",
-    "dueDate": "2025-11-11",
+    "dueDate": "2025-11-12",
     "createdBy": "hamsitha@example.com",
     "status": "pending",
     "id": "1763553805080589"
   },
   {
-    "title": "Do Shahina",
-    "dueDate": "2025-11-20",
+    "title": "Interview Shahina",
+    "dueDate": "2025-11-25",
     "createdBy": "hamsitha@example.com",
     "status": "pending",
     "id": "1763614443355673"
   },
   {
-    "title": "DO Raelene",
+    "title": "Make Wireframe",
     "dueDate": "2025-11-27",
     "createdBy": "hamsitha@example.com",
     "status": "pending",
     "id": "1763638100681095"
   },
   {
-    "title": "Do Shahinam 1",
+    "title": "Clean up FWEB code",
     "dueDate": "2025-11-04",
     "createdBy": "hamsitha@example.com",
     "status": "completed",
@@ -32,13 +32,41 @@
     "dueDate": "2025-11-11",
     "createdBy": "hamsitha@example.com",
     "status": "completed",
-    "id": "1763657615483351"
+    "id": "1763690817965231"
   },
   {
     "title": "do dvops pres pp",
     "dueDate": "2025-11-22",
     "createdBy": "raelene@gmaill.com",
     "status": "pending",
-    "id": "1763717568780204"
+    "id": "1763690936491957"
+  },
+  {
+    "title": "Do uxid",
+    "dueDate": "2025-11-19",
+    "createdBy": "shahina@gmail.com",
+    "status": "pending",
+    "id": "1763715244350229"
+  },
+  {
+    "title": "Do UXID now",
+    "dueDate": "2025-11-27",
+    "createdBy": "hamsitha.kaza@gmail.com",
+    "status": "pending",
+    "id": "1763717648597685"
+  },
+  {
+    "title": "Make Brownies",
+    "dueDate": "2025-11-09",
+    "createdBy": "hamsitha.kaza@gmail.com",
+    "status": "pending",
+    "id": "1763730560118929"
+  },
+  {
+    "title": "Watch Lecture video",
+    "dueDate": "2025-11-21",
+    "createdBy": "hamsitha.kaza@gmail.com",
+    "status": "pending",
+    "id": "1763730785346561"
   }
 ]
