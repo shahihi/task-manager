@@ -1,72 +1,37 @@
 [
   {
-    "title": "Design user interface",
-    "dueDate": "2025-11-12",
-    "createdBy": "hamsitha@example.com",
+    "id": 1,
+    "title": "Complete wireframe sketches",
     "status": "pending",
-    "id": "1763553805080589"
+    "createdBy": "raelene@example.com",
+    "dueDate": "2024-12-20"
   },
   {
-    "title": "Interview Shahina",
-    "dueDate": "2025-11-26",
-    "createdBy": "hamsitha@example.com",
+    "id": 2,
+    "title": "Prepare API endpoints for Create Task",
+    "status": "pending",
+    "createdBy": "shahina@example.com",
+    "dueDate": "2024-12-18"
+  },
+  {
+    "id": 3,
+    "title": "Implement View Tasks UI",
     "status": "completed",
-    "id": "1763614443355673"
+    "createdBy": "raelene@example.com",
+    "dueDate": "2024-12-15"
   },
   {
-    "title": "Make Wireframe",
-    "dueDate": "2025-11-27",
-    "createdBy": "hamsitha@example.com",
+    "id": 4,
+    "title": "Fix JSON validation for invalid dates",
     "status": "pending",
-    "id": "1763638100681095"
+    "createdBy": "hamsitha@example.com",
+    "dueDate": "2024-12-22"
   },
   {
-    "title": "Clean up FWEB code",
-    "dueDate": "2025-11-04",
-    "createdBy": "hamsitha@example.com",
+    "id": 5,
+    "title": "Integrate user creation flow",
     "status": "completed",
-    "id": "1763639482599727"
-  },
-  {
-    "title": "hello face wireframes",
-    "dueDate": "2025-11-11",
-    "createdBy": "hamsitha@example.com",
-    "status": "completed",
-    "id": "1763690817965231"
-  },
-  {
-    "title": "do dvops pres pp",
-    "dueDate": "2025-11-22",
-    "createdBy": "raelene@gmaill.com",
-    "status": "pending",
-    "id": "1763690936491957"
-  },
-  {
-    "title": "Do uxid",
-    "dueDate": "2025-11-19",
-    "createdBy": "shahina@gmail.com",
-    "status": "pending",
-    "id": "1763715244350229"
-  },
-  {
-    "title": "Do UXID now",
-    "dueDate": "2025-11-27",
-    "createdBy": "hamsitha.kaza@gmail.com",
-    "status": "pending",
-    "id": "1763717648597685"
-  },
-  {
-    "title": "Make Brownies",
-    "dueDate": "2025-11-09",
-    "createdBy": "hamsitha.kaza@gmail.com",
-    "status": "pending",
-    "id": "1763730560118929"
-  },
-  {
-    "title": "Watch Lecture video",
-    "dueDate": "2025-11-21",
-    "createdBy": "hamsitha.kaza@gmail.com",
-    "status": "pending",
-    "id": "1763730785346561"
+    "createdBy": "ayana@example.com",
+    "dueDate": "2024-12-10"
   }
 ]
