@@ -1,4 +1,4 @@
-const { User } = require('../models/user')
+const { User } = require('../models/User')
 const fs = require('fs').promises;
 const path = require('path');
 
