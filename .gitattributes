@@ -9,6 +9,4 @@
 *.css text working-tree-encoding=UTF-8
 *.html text working-tree-encoding=UTF-8
 
-# Ignore diff for minified JS files
-*.min.js -diff
 
