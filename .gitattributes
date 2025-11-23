@@ -12,7 +12,3 @@
 # Ignore diff for minified JS files
 *.min.js -diff
 
-# Treat images as binary
-*.png binary
-*.jpg binary
-*.jpeg binary
