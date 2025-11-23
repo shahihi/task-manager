@@ -1,0 +1,5 @@
+# Normalize text files to LF
+* text=auto eol=lf
+
+# Make JSON diffable as text
+*.json text
