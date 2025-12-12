@@ -26,5 +26,19 @@
     "password": "shaha",
     "confirmPassword": "shaha",
     "id": "1763906926738745"
+  },
+  {
+    "name": "john",
+    "email": "john@gmail.com",
+    "password": "123",
+    "confirmPassword": "123",
+    "id": "1764122282010499"
+  },
+  {
+    "name": "s",
+    "email": "shakalaka@gmail.com",
+    "password": "123",
+    "confirmPassword": "123",
+    "id": "1765529054938005"
   }
 ]
